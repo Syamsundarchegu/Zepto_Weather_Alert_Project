@@ -48,12 +48,12 @@ This project is a real-time weather monitoring system that retrieves weather dat
 ### Docker Setup(Optional)
 1. **Build the Docker image**
     ```bash
-    docker build -t weather_monitor .
+    docker build -t <username>/<image-name>:latest .
     ```
 
 2. **Run the Docker container**
     ```bash
-    docker run -e API_KEY=your_openweathermap_api_key_here -p 5000:5000 weather_monitor
+    docker run -t -p 3000:3000 <username>/<image-name>:latest
     ```
 ## Maditory Step
 Access the application at `http://127.0.0.1:5000`.
