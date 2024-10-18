@@ -120,7 +120,7 @@ if __name__ == '__main__':
     server_thread.start()
     
     try:
-        app.run(debug=True)
+        app.run(host="0.0.0.0",port=3000,debug=True)
     except KeyboardInterrupt:
         print("Shutting down server...")
         server_thread.join()  # Ensure threads are properly closed
