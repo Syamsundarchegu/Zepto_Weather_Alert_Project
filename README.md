@@ -16,7 +16,7 @@ This project is a real-time weather monitoring system that retrieves weather dat
 ### Setup
 1. **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/weather_monitor.git
+    git clone https://github.com/Syamsundarchegu/Zepto_Weather_Alert_Project.git
     cd weather_monitor
     ```
 
