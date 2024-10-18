@@ -13,14 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p>Condition: ${item[5]}</p>
                 </div>
             `).join('');
-            
-            // Prepare data for summary chart
+
             const labels = data.map(item => item[0]);
             const avgTemps = data.map(item => item[2]);
             const maxTemps = data.map(item => item[3]);
-            const minTemps = data.map(item[4]);
+            const minTemps = data.map(item => item[4]);
 
-            // Render summary chart
             const summaryCtx = document.getElementById('summaryChart').getContext('2d');
             new Chart(summaryCtx, {
                 type: 'bar',
@@ -61,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-    const threshold = 20;
+    const threshold = 20;  // Lower threshold for testing
     fetch('/alerts', {
         method: 'POST',
         headers: {
@@ -89,11 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('/historical_trends')
         .then(response => response.json())
         .then(data => {
-            // Prepare data for history chart
             const historyLabels = data.map(item => item.date);
             const historyTemps = data.map(item => item.avg_temp);
 
-            // Render history chart
             const historyCtx = document.getElementById('historyChart').getContext('2d');
             new Chart(historyCtx, {
                 type: 'line',

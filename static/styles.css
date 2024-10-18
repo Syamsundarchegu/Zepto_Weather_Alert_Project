@@ -60,13 +60,6 @@ h2 {
     margin-top: 0;
 }
 
-#alerts {
-    background: #ffeb3b;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-
 #alerts-section .card {
     background: #ffeb3b;
     color: #333;
@@ -85,4 +78,5 @@ h2 {
     font-size: 1.1em;
     margin: 5px 0;
 }
+
 

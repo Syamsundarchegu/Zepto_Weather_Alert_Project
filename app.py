@@ -7,21 +7,14 @@ import threading
 app = Flask(__name__)
 
 API_KEY = '82d3ca2cffa6484002ebf8471a1de406'  # Replace with your OpenWeatherMap API key
-CITY_IDS = {'Delhi': 1273294, 'Mumbai': 1275339, 'Chennai': 1264527, 'Bangalore': 1277333, 'Kolkata': 1275004, 'Hyderabad': 1269843}
-
-# '''This city ids are used for alerts section is working or not because in the below locations now have weather alert so that i took'''
-# CITY_IDS = {
-#     'Kanyakumari': 1268008,
-#     'Thoothukudi': 1254032,
-#     'Tirunelveli': 1254361,
-#     'Andhra Pradesh': 1254046,
-#     'Kerala': 1267254,
-#     'Karnataka': 1267701,
-#     'Puducherry': 1259425,
-#     'Karaikal': 1267621,
-#     'Mahe': 1262775
-# }
-
+CITY_IDS = {
+    'Delhi': 1273294,
+    'Mumbai': 1275339,
+    'Chennai': 1264527,
+    'Bangalore': 1277333,
+    'Kolkata': 1275004,
+    'Hyderabad': 1269843
+}
 UPDATE_INTERVAL = 300  # Fetch data every 5 minutes
 
 def init_db():
@@ -65,6 +58,7 @@ def save_weather_data(city, data):
         print(f"KeyError: {e} in data: {data}")
 
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -82,8 +76,6 @@ def daily_summary():
     conn.close()
     return jsonify(summary)
 
-
-
 @app.route('/alerts', methods=['POST'])
 def alerts():
     threshold = request.json.get('threshold')
@@ -97,6 +89,7 @@ def alerts():
         LIMIT 2
     ''', (threshold,))
     recent_temps = c.fetchall()
+    print(f"Recent temps: {recent_temps}")  # Log the recent temperatures
     conn.close()
     if len(recent_temps) == 2 and recent_temps[0][1] > threshold and recent_temps[1][1] > threshold:
         alerts_data = [{'city': row[0], 'temp': row[1], 'dt': row[2]} for row in recent_temps]
@@ -105,17 +98,6 @@ def alerts():
         return jsonify({'alert': 'No alert', 'data': []})
 
 
-
-
-
-
-
-
-
-
-
-    
-    
 @app.route('/historical_trends')
 def historical_trends():
     conn = sqlite3.connect('weather.db')
@@ -131,7 +113,6 @@ def historical_trends():
     conn.close()
     return jsonify([{"date": row[0], "avg_temp": row[1]} for row in trends])
 
-
 if __name__ == '__main__':
     init_db()
     server_thread = threading.Thread(target=fetch_weather_data)
@@ -142,4 +123,5 @@ if __name__ == '__main__':
         app.run(debug=True)
     except KeyboardInterrupt:
         print("Shutting down server...")
-        server_thread.join()  
+        server_thread.join()  # Ensure threads are properly closed
+
