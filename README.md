@@ -17,13 +17,14 @@ This project is a real-time weather monitoring system that retrieves weather dat
 1. **Clone the repository**
     ```bash
     git clone https://github.com/Syamsundarchegu/Zepto_Weather_Alert_Project.git
-    cd weather_monitor
+
     ```
 
 2. **Create a virtual environment**
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    conda create -name <env-name>
+    conda activate<env-name>
+    conda deactivate
     ```
 
 3. **Install dependencies**
@@ -42,7 +43,7 @@ This project is a real-time weather monitoring system that retrieves weather dat
     ```
 
 6. **Access the application**
-    Open your web browser and go to `http://127.0.0.1:5000`.
+    Open your web browser and go to `http://127.0.0.1:3000`.
 
 
 ### Docker Setup(Optional)
@@ -56,7 +57,7 @@ This project is a real-time weather monitoring system that retrieves weather dat
     docker run -t -p 3000:3000 <username>/<image-name>:latest
     ```
 ## Maditory Step
-Access the application at `http://127.0.0.1:5000`.
+Access the application at `http://127.0.0.1:3000`.
 
 
 ### Design Choices
