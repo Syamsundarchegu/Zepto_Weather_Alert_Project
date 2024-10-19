@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-    const threshold = 20;  // Lower threshold for testing
+    const threshold = 35;  // Lower threshold for testing
     fetch('/alerts', {
         method: 'POST',
         headers: {

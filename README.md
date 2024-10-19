@@ -22,8 +22,9 @@ This project is a real-time weather monitoring system that retrieves weather dat
 
 2. **Create a virtual environment**
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    conda create -name <environment_name> #For creating a virtual environment
+    conda activate <environment_name>  #For activating the virtual environment
+    conda deacity <environment_name>  #For deactivating the virtual environment
     ```
 
 3. **Install dependencies**
@@ -42,21 +43,24 @@ This project is a real-time weather monitoring system that retrieves weather dat
     ```
 
 6. **Access the application**
-    Open your web browser and go to `http://127.0.0.1:5000`.
+    Open your web browser and go to `http://127.0.0.1:3000`.
 
 
 ### Docker Setup(Optional)
 1. **Build the Docker image**
     ```bash
-    docker build -t weather_monitor .
+    docker build -t -p <username>/<image_name>:latest .
+    docker run -d <username>/<image_name>:latest
+    docker ps -a
+    docker logs <container_object>
     ```
 
 2. **Run the Docker container**
     ```bash
-    docker run -e API_KEY=your_openweathermap_api_key_here -p 5000:5000 weather_monitor
+    docker run -d <username>/<image_name>:latest
     ```
 ## Maditory Step
-Access the application at `http://127.0.0.1:5000`.
+Access the application at `http://127.0.0.1:3000`.
 
 
 ### Design Choices

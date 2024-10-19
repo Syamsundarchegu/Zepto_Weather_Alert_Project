@@ -1,2 +1,5 @@
 Flask
+Flask-SocketIO
 requests
+gunicorn
+eventlet  # Make sure to include this for WebSocket support

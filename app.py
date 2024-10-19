@@ -3,8 +3,10 @@ import requests
 import sqlite3
 import time
 import threading
+from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 
 API_KEY = '82d3ca2cffa6484002ebf8471a1de406'  # Replace with your OpenWeatherMap API key
 CITY_IDS = {
@@ -15,7 +17,7 @@ CITY_IDS = {
     'Kolkata': 1275004,
     'Hyderabad': 1269843
 }
-UPDATE_INTERVAL = 300  # Fetch data every 5 minutes
+UPDATE_INTERVAL = 120  # Fetch data every 2 minutes
 
 def init_db():
     conn = sqlite3.connect('weather.db')
@@ -120,7 +122,7 @@ if __name__ == '__main__':
     server_thread.start()
     
     try:
-        app.run(host="0.0.0.0",port=3000,debug=True)
+        socketio.run(app,host="0.0.0.0",port=3000,debug=True,allow_unsafe_werkzeug=True)
     except KeyboardInterrupt:
         print("Shutting down server...")
         server_thread.join()  # Ensure threads are properly closed
