@@ -17,14 +17,20 @@ This project is a real-time weather monitoring system that retrieves weather dat
 1. **Clone the repository**
     ```bash
     git clone https://github.com/Syamsundarchegu/Zepto_Weather_Alert_Project.git
-    cd weather_monitor
+
     ```
 
 2. **Create a virtual environment**
     ```bash
+<<<<<<< HEAD
     conda create -name <environment_name> #For creating a virtual environment
     conda activate <environment_name>  #For activating the virtual environment
     conda deacity <environment_name>  #For deactivating the virtual environment
+=======
+    conda create -name <env-name>
+    conda activate<env-name>
+    conda deactivate
+>>>>>>> 9526b9047aab327c0b0727111214e007cdd8f96c
     ```
 
 3. **Install dependencies**
@@ -49,15 +55,23 @@ This project is a real-time weather monitoring system that retrieves weather dat
 ### Docker Setup(Optional)
 1. **Build the Docker image**
     ```bash
+<<<<<<< HEAD
     docker build -t -p <username>/<image_name>:latest .
     docker run -d <username>/<image_name>:latest
     docker ps -a
     docker logs <container_object>
+=======
+    docker build -t <username>/<image-name>:latest .
+>>>>>>> 9526b9047aab327c0b0727111214e007cdd8f96c
     ```
 
 2. **Run the Docker container**
     ```bash
+<<<<<<< HEAD
     docker run -d <username>/<image_name>:latest
+=======
+    docker run -t -p 3000:3000 <username>/<image-name>:latest
+>>>>>>> 9526b9047aab327c0b0727111214e007cdd8f96c
     ```
 ## Maditory Step
 Access the application at `http://127.0.0.1:3000`.
