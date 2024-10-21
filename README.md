@@ -51,7 +51,7 @@ This project is a real-time weather monitoring system that retrieves weather dat
     ```bash
 
     docker build -t syamsundarchegu/zepto_weather:latest .
-    docker run -d -p syamsundarchegu/zepto_weather:latest
+    docker run -d -p 3000:3000 syamsundarchegu/zepto_weather:latest
     docker ps -a
     docker logs <container_object>
     
