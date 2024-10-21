@@ -23,9 +23,9 @@ This project is a real-time weather monitoring system that retrieves weather dat
 2. **Create a virtual environment**
     ```bash
 
-    conda create -name <environment_name> #For creating a virtual environment
-    conda activate <environment_name>  #For activating the virtual environment
-    conda deacity <environment_name>  #For deactivating the virtual environment
+    conda create -name zepto_weather #For creating a virtual environment
+    conda activate zepto_weather  #For activating the virtual environment
+    conda deacity zepto_weather  #For deactivating the virtual environment
 
 3. **Install dependencies**
     ```bash
@@ -50,8 +50,8 @@ This project is a real-time weather monitoring system that retrieves weather dat
 1. **Build the Docker image**
     ```bash
 
-    docker build -t -p <username>/<image_name>:latest .
-    docker run -d <username>/<image_name>:latest
+    docker build -t -p syamsundarchegu/zepto_weather:latest .
+    docker run -d -p syamsundarchegu/zepto_weather:latest
     docker ps -a
     docker logs <container_object>
     
@@ -59,7 +59,7 @@ This project is a real-time weather monitoring system that retrieves weather dat
 
 2. **Run the Docker container**
     ```bash
-    docker run -t -p 3000:3000 <username>/<image-name>:latest
+    docker run -d -p 3000:3000 syamsundarchegu/zepto_weather:latest
     ```
 
 ## Maditory Step
