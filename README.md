@@ -50,7 +50,7 @@ This project is a real-time weather monitoring system that retrieves weather dat
 1. **Build the Docker image**
     ```bash
 
-    docker build -t -p syamsundarchegu/zepto_weather:latest .
+    docker build -t syamsundarchegu/zepto_weather:latest .
     docker run -d -p syamsundarchegu/zepto_weather:latest
     docker ps -a
     docker logs <container_object>
